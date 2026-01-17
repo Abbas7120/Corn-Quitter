@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* Smooth scrolling like ChatGPT */
+.ais-Chat-messages {
+  scroll-behavior: smooth;
+}
+
+/* Slight emphasis for assistant */
+.ais-Chat-message--assistant {
+  border-left: 3px solid #22c55e;
+}
