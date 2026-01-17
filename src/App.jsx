@@ -2,10 +2,16 @@ import { liteClient as algoliasearch } from "algoliasearch/lite";
 import { InstantSearch, Chat } from "react-instantsearch";
 import "instantsearch.css/themes/satellite.css";
 
+// const searchClient = algoliasearch(
+//   "D3IXHAV8Y4", // App ID
+//   "6dffe447397c456ebeaf083aca879e1e" // Search-only key
+// );
+
 const searchClient = algoliasearch(
-  "D3IXHAV8Y4", // App ID
-  "6dffe447397c456ebeaf083aca879e1e" // Search-only key
+  import.meta.env.VITE_ALGOLIA_APP_ID,
+  import.meta.env.VITE_ALGOLIA_SEARCH_KEY
 );
+
 
 export default function App() {
   return (
@@ -62,7 +68,9 @@ Talk it out. Get through this moment. 🌱
           <div className="flex-1 overflow-hidden">
             <InstantSearch searchClient={searchClient}>
               <Chat
-                agentId="36bfdbd4-eb4e-409f-adac-2c01001127df"
+              agentId={import.meta.env.VITE_AGENT_ID}
+
+               // agentId="36bfdbd4-eb4e-409f-adac-2c01001127df"
                 classNames={{
                   root: "h-full flex flex-col",
                   messages: "flex-1 overflow-y-auto px-4 py-6 space-y-4",
